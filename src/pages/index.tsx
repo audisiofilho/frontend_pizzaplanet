@@ -1,9 +1,14 @@
-
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div >
-      <h1>pizza planet ;)</h1>
-    </div>
+    <>
+      <Head>
+        <title>PizzaPlanet - Faça seu login</title>
+      </Head>
+      <div>
+        <h1>Pizza Planet</h1>
+      </div>
+    </>
   );
 }
