@@ -18,17 +18,27 @@ export default function Home() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
 
+    if (email === "" || password === "") {
+      alert("PREENCHA OS DADOS");
+      return;
+    }
+
+    setLoading(true);
+
     let data = {
       email,
-      password
+      password,
     };
 
     await signIn(data);
+
+    setLoading(false);
   }
   return (
     <>
@@ -53,7 +63,7 @@ export default function Home() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button type="submit" loading={false}>
+            <Button type="submit" loading={loading}>
               Acessar
             </Button>
           </form>
