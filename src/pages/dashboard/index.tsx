@@ -1,7 +1,15 @@
-export default function Dashboard(){
-    return(
-        <div>
-            <h1>bendivndo ao painel</h1>
-        </div>
-    )
+import { canSSRAuth } from "../../utils/canSSRAuth";
+
+export default function Dashboard() {
+  return (
+    <div>
+      <h1>bendivndo ao painel</h1>
+    </div>
+  );
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+  return {
+    props: {},
+  };
+});
