@@ -32,6 +32,7 @@ export type OrderItemProps = {
   product_id: string;
   product: {
     id: string;
+    name: string;
     description: string;
     price: string;
     banner: string;
@@ -94,7 +95,13 @@ export default function Dashboard({ orders }: HomeProps) {
           </article>
         </main>
 
-        {modalVisible && <ModalOrder />}
+        {modalVisible && (
+          <ModalOrder
+            isOpen={modalVisible}
+            onRequestClose={handleCloseModalView}
+            order={modalItem}
+          />
+        )}
       </div>
     </>
   );
